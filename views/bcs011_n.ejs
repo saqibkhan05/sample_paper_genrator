@@ -1,0 +1,104 @@
+<% include inc_com/header %>
+
+<br>
+
+    <div class="container">      
+      <h1 class="display-4"><i class="fa fa-graduation-cap"></i> Analysis.com</h1>
+      <p>Welcome to Analysis.com | BCS-011, Computer basics & PC Software</p>
+      <br>
+      <hr width="50%" align="left">
+
+      <form method="post" action="/">
+
+        <div class="form-row">
+
+          <div class="form-group col-md-3">
+            <label>time zone</label>
+            <select name="time_zone" class="form-control">
+              <optgroup label="July">
+                <option value="July 2011" selected>July 2011</option>
+                <option value="July 2012" >July 2012</option>
+                <option value="July 2013" >July 2013</option>
+                <option value="July 2014" >July 2014</option>
+                <option value="July 2015" >July 2015</option>
+                <option value="July 2016" >July 2016</option>
+              </optgroup>
+              <optgroup label="December">
+                <option value="December 2011" >December 2011</option>
+                <option value="December 2012" >December 2012</option>
+                <option value="December 2013" >December 2013</option>
+                <option value="December 2014" >December 2014</option>
+                <option value="December 2015" >December 2015</option>
+                <option value="December 2016" >December 2016</option>
+              </optgroup>
+            </select>
+          </div>
+          
+          <div class="form-group col-md-3">
+            <label>Question no.</label>
+            <select name="ques_no" class="form-control">
+              <option value="1" selected>1</option>
+              <option value="2" >2</option>
+              <option value="3" >3</option>
+              <option value="4" >4</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-3">
+            <label>Question part.</label>
+            <select name="ques_part" class="form-control">
+              <option value="a" selected>a</option>
+              <option value="b" >b</option>
+              <option value="c" >c</option>
+              <option value="d" >d</option>
+              <option value="e" >e</option>
+              <option value="f" >f</option>
+              <option value="g" >g</option>
+              <option value="h" >h</option>
+              <option value="i" >i</option>
+              <option value="j" >j</option>
+            </select>
+          </div>
+          
+
+          <div class="form-group col-md-3">
+            <label>Marks</label>
+            <input type="text" name="marks" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-row">
+          
+          <div class="form-group col-md-4">
+            <label>Block no.</label>
+            <input type="text" name="blok_no" class="form-control">
+          </div>
+          
+          
+          <div class="form-group col-md-4">
+            <label>Unit no.</label>
+            <input type="text" name="unit_no" class="form-control">
+          </div>
+          
+          
+          <div class="form-group col-md-4">
+            <label>Add Tag.</label>
+            <input type="text" name="tag" class="form-control">
+          </div>
+
+        </div>
+    
+        <div class="form-group">
+          <label>Enter question.</label>
+          <textarea class="form-control" name="Questionmsg" rows="5"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary"><i class="fa fa-cloud-upload"></i> Submit</button>
+        <button type="button" class="btn btn-danger"><i class="fa fa-remove"></i> Cancel</button>
+      </form>
+
+
+    </div>
+
+
+<% include inc_com/footer %>

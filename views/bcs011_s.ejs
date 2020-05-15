@@ -1,0 +1,104 @@
+<% include inc_com/header %>
+
+<br>
+
+    <div class="container">   
+      <h1 class="display-4"><i class="fa fa-graduation-cap"></i> Analysis.com</h1>
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Welcome to Analysis.com</p>
+        </div>
+        <div class="col-sm-6">
+          <a href="/chart" type="button" class="btn btn-secondary"><i class="fa fa-bar-chart"></i> Show Charts</a>
+          <button type="button" class="btn btn-secondary"><i class="fa fa-file-pdf-o"></i> Make Pdf.</button>
+        </div>
+      </div>
+      
+    </div>
+<hr>
+    <div style="margin-left: 50px; margin-right: 50px;">
+  <form>
+    <div class="form-row">
+          <div class="form-group col-md-2">
+            <label>time zone</label>
+            <select name="time_zone" class="form-control">
+              <optgroup label="July">
+                <option value="July 2011" selected>July 2011</option>
+                <option value="July 2012" >July 2012</option>
+                <option value="July 2012" >July 2013</option>
+                <option value="July 2014" >July 2014</option>
+                <option value="July 2015" >July 2015</option>
+                <option value="July 2016" >July 2016</option>
+              </optgroup>
+              <optgroup label="December">
+                <option value="December 2011" >December 2011</option>
+                <option value="December 2012" >December 2012</option>
+                <option value="December 2013" >December 2013</option>
+                <option value="December 2014" >December 2014</option>
+                <option value="December 2015" >December 2015</option>
+                <option value="December 2016" >December 2016</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label>Block no.</label>
+            <input type="text" name="blok_no" class="form-control">
+          </div>
+          <div class="form-group col-md-2">
+            <label>Unit no.</label>
+            <input type="text" name="unit_no" class="form-control">
+          </div>
+          <div class="form-group col-md-5">
+            <label>Add Tag.</label>
+            <input type="text" name="tag" class="form-control">
+          </div>
+          <div class="form-group col-md-1">
+            <label><b>Search.</b></label>
+            <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i> Search</button>
+          </div>
+    </div>
+  </form>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Q no.</th>
+            <th scope="col">Question</th>
+            <th scope="col">Marks</th>
+            <th>numbering of question</th>
+            <th scope="col">Time zone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% p_data.forEach(data =>{ %>
+          <tr>
+            <th>1</th>
+            <td><pre><%= data.Question %></pre></td>
+            <td><%= data.Marks %></td>
+            <td><p><%= data.Question_no %> (<%= data.Question_part %>)</p></td>
+            <td><b><%= data.time_zone %></b></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include inc_com/footer %>
