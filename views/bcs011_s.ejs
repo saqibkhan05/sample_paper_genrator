@@ -1,5 +1,10 @@
 <% include inc_com/header %>
 
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
+
+
 <br>
 
     <div class="container">   
@@ -10,7 +15,7 @@
         </div>
         <div class="col-sm-6">
           <a href="/chart" type="button" class="btn btn-secondary"><i class="fa fa-bar-chart"></i> Show Charts</a>
-          <button type="button" class="btn btn-secondary"><i class="fa fa-file-pdf-o"></i> Make Pdf.</button>
+          <a href="/questionlist" type="button" class="btn btn-secondary"><i class="fa fa-file-pdf-o"></i> Make Pdf.</a>
         </div>
       </div>
       
@@ -58,24 +63,24 @@
           </div>
     </div>
   </form>
-      <table class="table">
+      <table class="table" id="mytabletopdf">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Q no.</th>
             <th scope="col">Question</th>
             <th scope="col">Marks</th>
-            <th>numbering of question</th>
-            <th scope="col">Time zone</th>
+            <!-- <th>numbering of question</th> -->
+            <th scope="col">Time zone | Numbering of question</th>
           </tr>
         </thead>
         <tbody>
           <% p_data.forEach(data =>{ %>
           <tr>
             <th>1</th>
-            <td><pre><%= data.Question %></pre></td>
+            <td><pre style="font-family: 'Times New Roman'; font-size: 16px;"><%= data.Question %></pre></td>
             <td><%= data.Marks %></td>
-            <td><p><%= data.Question_no %> (<%= data.Question_part %>)</p></td>
-            <td><b><%= data.time_zone %></b></td>
+            <!-- <td><p><%= data.Question_no %> (<%= data.Question_part %>)</p></td> -->
+            <td><b><%= data.time_zone %></b> / Q-<%= data.Question_no %> .(<%= data.Question_part %>)</td>
           </tr>
           <% }) %>
         </tbody>
@@ -85,17 +90,24 @@
 
     </div>
 
+<!-- 
 
-
-
-
-
-
-
-
-
-
-
+    <script type="text/javascript">
+      $("body").on("click", "#makepdf", function () {
+          html2canvas($('#mytabletopdf')[0], {
+              onrendered: function (canvas) {
+                  var data = canvas.toDataURL();
+                  var docDefinition = {
+                      content: [{
+                          image: data,
+                          width: 500
+                      }]
+                  };
+                  pdfMake.createPdf(docDefinition).download("customer_details.pdf");
+              }
+          });
+      });
+  </script> -->
 
 
 
