@@ -39,13 +39,22 @@ router.post('/', async (req, res)=> {
 });
 
 router.get('/showbcs011', async (req,res)=>{
-  const p_data = await bcs011.find();
-  res.render('bcs011_s',{p_data:p_data});
+  let searchoption = {}
+  if (req.query.tag != null && req.query.tag !== ''){
+    searchoption.tag = new RegExp(req.query.tag, 'i')
+  }
+  try {
+    const p_data = await bcs011.find(searchoption);
+    res.render('bcs011_s',{p_data:p_data, searchoption:req.query}); 
+  } catch {
+    res.redirect('/');
+  }
 });
-router.get('/questionlist', async (req,res)=>{
-  const p_data = await bcs011.find();
-  res.render('questionlist',{p_data:p_data});
-});
+
+// router.get('/questionlist', async (req,res)=>{
+//   const p_data = await bcs011.find();
+//   res.render('questionlist',{p_data:p_data});
+// });
 
 
 
